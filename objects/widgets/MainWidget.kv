@@ -1,0 +1,45 @@
+#:import utils kivy.utils
+
+<MainWidget>:
+    orientation: "vertical"
+    padding: 20, 0
+
+    BoxLayout:
+
+        Button:
+            background_color: app.settings["color"]["green"]
+            text: "Я основная область"
+
+    BoxLayout:
+        padding: 0, 20, 0, 10
+        spacing: 20
+        size_hint_y: .15
+
+        Button:
+            #width: round(self.height / 4)
+
+            BoxLayout:
+                orientation: "vertical"
+                size_hiht_x: 1
+
+                Button:
+                    size_hint: 1, .5
+                    text: "HOME"
+                    color: "#000000"
+                    valign: "center"
+
+                Button:
+                    size_hint_y: .5
+                    source: "./assets/icons/home.png"
+                    allow_stretch: True
+                    width: 32
+
+        Button:
+            #size: round(self.height / 4), round(self.height / 4)
+            text: "2"
+        Button:
+            #size: round(self.height / 4), round(self.height / 4)
+            text: "3"
+        Button:
+            #size: round(self.height / 4), round(self.height / 4)
+            text: "4"
