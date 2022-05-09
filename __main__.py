@@ -1,30 +1,31 @@
 # ROOT
 import json
-from kivy.app import App
+from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.config import Config
 
 # UIX
-from kivy.uix.label import Label
 
 # Widgets
 Builder.load_file("./objects/widgets/root.kv")
+from objects.ScreenManagement import *
+from objects.screens.ScheduleScreen import *
+from objects.screens.ProfileScreen import *
+
 from objects.widgets.MainWidget import *
 
 Config.set("graphics", "width", "600")
 Config.set("graphics", "height", "900")
+Config.write()
 
-class MainApp(App):
-    config = None
-
-    def __init__ (self):
-        super(MainApp, self).__init__()
+class MainApp(MDApp):
+    def __init__ (self, **kwargs):
+        super(MainApp, self).__init__(**kwargs)
         with open("config.json", encoding="utf-8") as file:
             self.settings = json.loads(file.read())
     
     def build(self):
-        mw = MainWidget()
-        return mw
+        return MainWidget()
 
 if __name__ == "__main__":
     MainApp().run()

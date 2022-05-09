@@ -1,5 +1,4 @@
 
-import json
 from kivy.lang import Builder
 
 from kivy.uix.boxlayout import BoxLayout

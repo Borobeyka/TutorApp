@@ -1,12 +1,11 @@
 {
     "color":
     {
-        "red": "#e66247",
-        "black": "#181616",
-        "green": "#36944d",
-        "lightgreen": "#A5E3B5",
-        "darkgreen": "#1c542a",
-        "white": "#e3eaea",
-        "grey": "#afbab2"
+        "violet": "#390099",
+        "white": "F3EFF0",
+        "lilac": "#9E0059",
+        "lightred": "#FF0054",
+        "orange": "#FF5400",
+        "yellow": "#FFBD00"
     }
 }

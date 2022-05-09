@@ -2,44 +2,44 @@
 
 <MainWidget>:
     orientation: "vertical"
-    padding: 20, 0
 
-    BoxLayout:
+    MDToolbar:
+        id: toolbar
+        title: "Расписание"
+        md_bg_color: rgba(app.settings["color"]["violet"])
+        specific_text_color: rgba(app.settings["color"]["white"])
+        elevation: 20
 
-        Button:
-            background_color: app.settings["color"]["green"]
-            text: "Я основная область"
 
-    BoxLayout:
-        padding: 0, 20, 0, 10
-        spacing: 20
-        size_hint_y: .15
+    ScreenManagement:
+        #transition: FadeTransition()
+        ScheduleScreen:
+        ProfileScreen:
 
-        Button:
-            #width: round(self.height / 4)
+    MDBottomNavigation:
+        panel_color: rgba(app.settings["color"]["violet"])
+        text_color_normal: rgba(app.settings["color"]["white"])
+        text_color_active: rgba(app.settings["color"]["lightred"])
 
-            BoxLayout:
-                orientation: "vertical"
-                size_hiht_x: 1
+        MDBottomNavigationItem:
+            text: "Расписание"
+            icon: "calendar-month"
 
-                Button:
-                    size_hint: 1, .5
-                    text: "HOME"
-                    color: "#000000"
-                    valign: "center"
+            on_tab_release:
+                print(self)
+                #print(self.manager.current)
+                #self.manager.current = "schedule"
 
-                Button:
-                    size_hint_y: .5
-                    source: "./assets/icons/home.png"
-                    allow_stretch: True
-                    width: 32
+        MDBottomNavigationItem:
+            text: "Профиль"
+            icon: "account"
 
-        Button:
-            #size: round(self.height / 4), round(self.height / 4)
-            text: "2"
-        Button:
-            #size: round(self.height / 4), round(self.height / 4)
-            text: "3"
-        Button:
-            #size: round(self.height / 4), round(self.height / 4)
-            text: "4"
+            on_tab_release: self.manager.current = "profile"
+
+        MDBottomNavigationItem:
+            text: "Ученики"
+            icon: "account-edit"
+
+        MDBottomNavigationItem:
+            text: "Настройки"
+            icon: "tune"
