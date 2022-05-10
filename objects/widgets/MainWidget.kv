@@ -10,11 +10,14 @@
         specific_text_color: rgba(app.settings["color"]["white"])
         elevation: 20
 
-
     ScreenManagement:
+        id: SSS
         #transition: FadeTransition()
         ScheduleScreen:
+            name: "schedule"
         ProfileScreen:
+            name: "profile"
+
 
     MDBottomNavigation:
         panel_color: rgba(app.settings["color"]["violet"])
@@ -26,7 +29,7 @@
             icon: "calendar-month"
 
             on_tab_release:
-                print(self)
+                root.ids["SSS"].current = "profile"
                 #print(self.manager.current)
                 #self.manager.current = "schedule"
 
@@ -43,3 +46,5 @@
         MDBottomNavigationItem:
             text: "Настройки"
             icon: "tune"
+
+    

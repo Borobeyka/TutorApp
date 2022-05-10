@@ -8,11 +8,14 @@ from kivy.config import Config
 
 # Widgets
 Builder.load_file("./objects/widgets/root.kv")
-from objects.ScreenManagement import *
+
+
 from objects.screens.ScheduleScreen import *
 from objects.screens.ProfileScreen import *
 
+from objects.ScreenManagement import *
 from objects.widgets.MainWidget import *
+
 
 Config.set("graphics", "width", "600")
 Config.set("graphics", "height", "900")
