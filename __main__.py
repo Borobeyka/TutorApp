@@ -5,28 +5,21 @@ from kivy.lang import Builder
 from kivy.config import Config
 
 # UIX
+from objects.ScreenManagement import *
 
 # Widgets
 Builder.load_file("./objects/widgets/root.kv")
-
-
-from objects.screens.ScheduleScreen import *
-from objects.screens.ProfileScreen import *
-
-from objects.ScreenManagement import *
 from objects.widgets.MainWidget import *
-
-
-Config.set("graphics", "width", "600")
-Config.set("graphics", "height", "900")
-Config.write()
 
 class MainApp(MDApp):
     def __init__ (self, **kwargs):
         super(MainApp, self).__init__(**kwargs)
         with open("config.json", encoding="utf-8") as file:
             self.settings = json.loads(file.read())
-    
+        Config.set("graphics", "width", self.settings["app"]["width"])
+        Config.set("graphics", "height", self.settings["app"]["height"])
+        Config.write()
+
     def build(self):
         return MainWidget()
 

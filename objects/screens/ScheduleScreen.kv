@@ -1,6 +1,35 @@
 <ScheduleScreen>:
     name: "schedule"
+    title: "Расписание"
 
-    Button:
-        text: "Я кнопка на расписании"
-        font_size: 50
+    BoxLayout:
+        orientation: "vertical"
+
+        MDLabel:
+            text: str(self.size)
+            halign: "center"
+            size_hint_y: 0.1
+
+        MDGridLayout:
+            adaptive_width: True
+            cols: app.settings["screens"]["schedule"]["cols"]
+            spacing: 10
+
+            MDFlatButton:
+                text: "1"
+            MDFlatButton:
+                text: "2"
+            MDRectangleFlatButton:
+                text: "3"
+            MDRectangleFlatButton:
+                text: "4"
+            MDRectangleFlatButton:
+                text: "5"
+            MDRectangleFlatButton:
+                text: "6"
+            MDRectangleFlatButton:
+                text: "7"
+            MDRectangleFlatButton:
+                text: "8"
+            MDRectangleFlatButton:
+                text: "9"

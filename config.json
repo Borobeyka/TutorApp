@@ -1,11 +1,25 @@
 {
+    "app":
+    {
+        "width": 400,
+        "height": 650
+    },
     "color":
     {
-        "violet": "#390099",
-        "white": "F3EFF0",
-        "lilac": "#9E0059",
-        "lightred": "#FF0054",
-        "orange": "#FF5400",
-        "yellow": "#FFBD00"
+        "pink": "#CDB4DB",
+        "lightpink": "#FFC8DD",
+        "darkpink": "#FFAFCC",
+        "lightblue": "#BDE0FE",
+        "blue": "#A2D2FF",
+        "black": "#10273D",
+        "grey": "#6F7C89"
+    },
+    "screens":
+    {
+        "schedule":
+        {
+            "cols": 7,
+            "rows": 5
+        }
     }
 }
