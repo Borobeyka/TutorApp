@@ -1,8 +1,8 @@
 {
     "app":
     {
-        "width": 400,
-        "height": 650
+        "width": 500,
+        "height": 700
     },
     "color":
     {
@@ -14,8 +14,9 @@
         "black": "#10273D",
         "grey": "#6F7C89"
     },
-    "screens":
+    "screen":
     {
+        "padding": 15,
         "schedule":
         {
             "cols": 7,

@@ -1,35 +1,77 @@
+
 <ScheduleScreen>:
     name: "schedule"
     title: "Расписание"
 
     BoxLayout:
         orientation: "vertical"
+        size_hint: 1, None
+        size: root.width, root.height
+        padding: app.settings["screen"]["padding"] / 2, app.settings["screen"]["padding"]
+        spacing: 15
 
-        MDLabel:
-            text: str(self.size)
-            halign: "center"
-            size_hint_y: 0.1
+        # Май, 2022
+        BoxLayout:
+            size_hint_y: None
+            height: 40
+            MDIconButton:
+                size_hint_y: None
+                icon: "arrow-left"
 
-        MDGridLayout:
-            adaptive_width: True
-            cols: app.settings["screens"]["schedule"]["cols"]
-            spacing: 10
+                on_release:
+                    print("Left arrow")
 
-            MDFlatButton:
-                text: "1"
-            MDFlatButton:
-                text: "2"
-            MDRectangleFlatButton:
-                text: "3"
-            MDRectangleFlatButton:
-                text: "4"
-            MDRectangleFlatButton:
-                text: "5"
-            MDRectangleFlatButton:
-                text: "6"
-            MDRectangleFlatButton:
-                text: "7"
-            MDRectangleFlatButton:
-                text: "8"
-            MDRectangleFlatButton:
-                text: "9"
+            MDLabel:
+                text: "Май, 2022"
+                font_size: 28
+                halign: "center"
+                size_hint_y: None
+                height: 40
+
+            MDIconButton:
+                size_hint_y: None
+                height: 40
+                icon: "arrow-right"
+
+                on_release:
+                    print("Right arrow")
+        # 11, среда
+        BoxLayout:
+            size_hint_y: None
+            height: 40
+            MDIconButton:
+                size_hint_y: None
+                icon: "arrow-left"
+
+                on_release:
+                    print("Left arrow")
+
+            MDLabel:
+                text: "11, среда"
+                font_size: 28
+                halign: "center"
+                size_hint_y: None
+                height: 40
+
+            MDIconButton:
+                size_hint_y: None
+                height: 40
+                icon: "arrow-right"
+
+                on_release:
+                    print("Right arrow")
+        ScrollView:
+            md_bg_color: rgba(app.settings["color"]["black"])
+
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: 1, None
+                size: root.width, root.height
+                spacing: 15
+
+                BoxLayout:
+                    padding: 0, app.settings["screen"]["padding"] * 3, 0, 0
+                    md_bg_color: rgba(app.settings["color"]["blue"])
+
+                    MDLabel:
+                        text: "Вова"

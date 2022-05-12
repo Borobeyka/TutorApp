@@ -6,6 +6,7 @@
 
     MDToolbar:
         id: tool_bar
+        font_size: 48
         title: root.ids["manager"].get_screen(root.ids["manager"].current).title
         md_bg_color: rgba(app.settings["color"]["pink"])
         specific_text_color: rgba(app.settings["color"]["black"])
@@ -17,7 +18,7 @@
         ScheduleScreen:
         ProfileScreen:
         StudentsScreen:
-        SettingsScreen:
+        #SettingsScreen:
 
 
     MDBottomNavigation:
@@ -50,10 +51,10 @@
             on_tab_release:
                 root.change_screen(self)
 
-        MDBottomNavigationItem:
-            name: "settings"
-            text: "Настройки"
-            icon: "tune"
+        # MDBottomNavigationItem:
+        #     name: "settings"
+        #     text: "Настройки"
+        #     icon: "tune"
 
-            on_tab_release:
-                root.change_screen(self)
+        #     on_tab_release:
+        #         root.change_screen(self)
