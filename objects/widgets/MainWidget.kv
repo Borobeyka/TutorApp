@@ -8,7 +8,7 @@
         id: tool_bar
         font_size: 48
         title: root.ids["manager"].get_screen(root.ids["manager"].current).title
-        md_bg_color: rgba(app.settings["color"]["pink"])
+        md_bg_color: rgba(app.settings["color"]["honeydew"])
         specific_text_color: rgba(app.settings["color"]["black"])
 
     ScreenManagement:
@@ -18,13 +18,12 @@
         ScheduleScreen:
         ProfileScreen:
         StudentsScreen:
-        #SettingsScreen:
-
 
     MDBottomNavigation:
         id: navigator
-        panel_color: rgba(app.settings["color"]["pink"])
-        text_color_normal: rgba(app.settings["color"]["grey"])
+        size_hint_y: None
+        panel_color: rgba(app.settings["color"]["honeydew"])
+        text_color_normal: rgba(app.settings["color"]["black"])
         text_color_active: rgba(app.settings["color"]["black"])
 
         MDBottomNavigationItem:
@@ -50,11 +49,3 @@
 
             on_tab_release:
                 root.change_screen(self)
-
-        # MDBottomNavigationItem:
-        #     name: "settings"
-        #     text: "Настройки"
-        #     icon: "tune"
-
-        #     on_tab_release:
-        #         root.change_screen(self)

@@ -6,13 +6,9 @@
     },
     "color":
     {
-        "pink": "#CDB4DB",
-        "lightpink": "#FFC8DD",
-        "darkpink": "#FFAFCC",
-        "lightblue": "#BDE0FE",
-        "blue": "#A2D2FF",
-        "black": "#10273D",
-        "grey": "#6F7C89"
+        "honeydew": "#ACE7B3",
+        "black": "#3E3737",
+        "lemon": "#fdffb6"
     },
     "screen":
     {

@@ -1,4 +1,3 @@
-
 <ScheduleScreen>:
     name: "schedule"
     title: "Расписание"
@@ -23,7 +22,7 @@
 
             MDLabel:
                 text: "Май, 2022"
-                font_size: 28
+                font_size: 22
                 halign: "center"
                 size_hint_y: None
                 height: 40
@@ -48,7 +47,7 @@
 
             MDLabel:
                 text: "11, среда"
-                font_size: 28
+                font_size: 22
                 halign: "center"
                 size_hint_y: None
                 height: 40
@@ -60,18 +59,56 @@
 
                 on_release:
                     print("Right arrow")
+
         ScrollView:
-            md_bg_color: rgba(app.settings["color"]["black"])
+            MDGridLayout:
+                cols: 1
+                adaptive_height: True
+                spacing: 20
 
-            BoxLayout:
-                orientation: "vertical"
-                size_hint: 1, None
-                size: root.width, root.height
-                spacing: 15
+                MDCard:
+                    size_hint_y: None
+                    height: 100
+                    md_bg_color: rgba(app.settings["color"]["lemon"])
+                    orientation: "vertical"
+                    on_release:
+                        print("Ты тыкнул")
 
-                BoxLayout:
-                    padding: 0, app.settings["screen"]["padding"] * 3, 0, 0
-                    md_bg_color: rgba(app.settings["color"]["blue"])
-
+                    BoxLayout:
+                        MDLabel:
+                            halign: "center"
+                            text: "1"
+                        MDLabel:
+                            halign: "center"
+                            text: "16:30"
+                        MDLabel:
+                            halign: "center"
+                            text: "Вова"
                     MDLabel:
-                        text: "Вова"
+                        halign: "center"
+                        md_bg_color: rgba(app.settings["color"]["honeydew"])
+                        text: "ул. 2-я Владимирская, 5"
+
+                MDCard:
+                    size_hint_y: None
+                    height: 100
+                    md_bg_color: rgba(app.settings["color"]["lemon"])
+                    orientation: "vertical"
+                    BoxLayout:
+                        MDLabel:
+                            halign: "center"
+                            text: "2"
+                        MDLabel:
+                            halign: "center"
+                            text: "18:30"
+                        MDLabel:
+                            halign: "center"
+                            text: "Илия"
+                    MDLabel:
+                        halign: "center"
+                        md_bg_color: rgba(app.settings["color"]["honeydew"])
+                        text: "У преподавателя"
+                MDFillRoundFlatButton:
+                    size_hint_x: 1
+                    text: "Добавить занятие"
+                #Widget:
