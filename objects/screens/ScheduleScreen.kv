@@ -18,14 +18,14 @@
                 icon: "arrow-left"
 
                 on_release:
-                    print("Left arrow")
+                    root.update_month(-1)
 
             MDLabel:
+                id: header_month
                 text: "Май, 2022"
                 font_size: 22
                 halign: "center"
-                size_hint_y: None
-                height: 40
+                valign: "center"
 
             MDIconButton:
                 size_hint_y: None
@@ -33,7 +33,7 @@
                 icon: "arrow-right"
 
                 on_release:
-                    print("Right arrow")
+                    root.update_month(1)
         # 11, среда
         BoxLayout:
             size_hint_y: None
@@ -43,14 +43,14 @@
                 icon: "arrow-left"
 
                 on_release:
-                    print("Left arrow")
+                    root.update_day(-1)
 
             MDLabel:
+                id: header_day
                 text: "11, среда"
                 font_size: 22
                 halign: "center"
-                size_hint_y: None
-                height: 40
+                valign: "center"
 
             MDIconButton:
                 size_hint_y: None
@@ -58,57 +58,62 @@
                 icon: "arrow-right"
 
                 on_release:
-                    print("Right arrow")
+                    root.update_day(1)
 
         ScrollView:
             MDGridLayout:
+                id: students_list
                 cols: 1
                 adaptive_height: True
                 spacing: 20
 
-                MDCard:
-                    size_hint_y: None
-                    height: 100
-                    md_bg_color: rgba(app.settings["color"]["lemon"])
-                    orientation: "vertical"
-                    on_release:
-                        print("Ты тыкнул")
+                StudentCard:
 
-                    BoxLayout:
-                        MDLabel:
-                            halign: "center"
-                            text: "1"
-                        MDLabel:
-                            halign: "center"
-                            text: "16:30"
-                        MDLabel:
-                            halign: "center"
-                            text: "Вова"
-                    MDLabel:
-                        halign: "center"
-                        md_bg_color: rgba(app.settings["color"]["honeydew"])
-                        text: "ул. 2-я Владимирская, 5"
+                # MDCard:
+                #     size_hint_y: None
+                #     height: 100
+                #     md_bg_color: rgba(app.settings["color"]["lemon"])
+                #     orientation: "vertical"
+                #     on_release:
+                #         print(self)
+                #     BoxLayout:
+                #         MDLabel:
+                #             halign: "center"
+                #             text: "1"
+                #         MDLabel:
+                #             halign: "center"
+                #             text: "16:30"
+                #         MDLabel:
+                #             halign: "center"
+                #             text: "Вова"
+                #     MDLabel:
+                #         text: "ул. 2-я Владимирская, 5"
+                #         halign: "center"
+                #         md_bg_color: rgba(app.settings["color"]["honeydew"])
 
-                MDCard:
-                    size_hint_y: None
-                    height: 100
-                    md_bg_color: rgba(app.settings["color"]["lemon"])
-                    orientation: "vertical"
-                    BoxLayout:
-                        MDLabel:
-                            halign: "center"
-                            text: "2"
-                        MDLabel:
-                            halign: "center"
-                            text: "18:30"
-                        MDLabel:
-                            halign: "center"
-                            text: "Илия"
-                    MDLabel:
-                        halign: "center"
-                        md_bg_color: rgba(app.settings["color"]["honeydew"])
-                        text: "У преподавателя"
+                # MDCard:
+                #     size_hint_y: None
+                #     height: 100
+                #     md_bg_color: rgba(app.settings["color"]["lemon"])
+                #     orientation: "vertical"
+                #     BoxLayout:
+                #         MDLabel:
+                #             halign: "center"
+                #             text: "2"
+                #         MDLabel:
+                #             halign: "center"
+                #             text: "18:30"
+                #         MDLabel:
+                #             halign: "center"
+                #             text: "Илия"
+                #     MDLabel:
+                #         halign: "center"
+                #         md_bg_color: rgba(app.settings["color"]["honeydew"])
+                #         text: "У преподавателя"
                 MDFillRoundFlatButton:
                     size_hint_x: 1
                     text: "Добавить занятие"
+
+                    on_release:
+                        print(root)
                 #Widget:

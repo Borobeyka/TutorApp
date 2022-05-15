@@ -2,7 +2,14 @@
     "app":
     {
         "width": 500,
-        "height": 700
+        "height": 700,
+        "db":
+        {
+            "hostname": "localhost",
+            "username": "root",
+            "password": "",
+            "database": "tutor-app"
+        }
     },
     "color":
     {
