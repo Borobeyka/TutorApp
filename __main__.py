@@ -31,7 +31,7 @@ class MainApp(MDApp):
     def is_logged(self):
         if self.store.exists("data"):
             with self.con() as cursor:
-                sql = "SELECT login FROM tutors WHERE login=%s"
+                sql = "SELECT login FROM tutors WHERE login = %s"
                 count = cursor.execute(sql, (self.store.get("data")["login"],))
                 if count != 0:
                     return True
