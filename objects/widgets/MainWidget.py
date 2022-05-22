@@ -14,5 +14,5 @@ class MainWidget(BoxLayout):
         super(MainWidget, self).__init__(**kwargs)
 
     def change_screen(self, instance):
-        self.ids["manager"].current = instance.name
-        self.ids["tool_bar"].title = instance.text
+        self.ids.manager.current = instance.name
+        self.ids.tool_bar.title = instance.text

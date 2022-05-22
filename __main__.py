@@ -49,7 +49,7 @@ class MainApp(MDApp):
         
     def build(self):
         mw = MainWidget()
-        mw.ids["manager"].get_screen("schedule").update() #####
+        mw.ids.manager.get_screen("schedule").update()
         return mw
 
 if __name__ == "__main__":

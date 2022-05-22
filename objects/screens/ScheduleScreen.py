@@ -20,11 +20,11 @@ class ScheduleScreen(Screen):
         self.update_content()
         
     def update_headers(self):
-        self.ids["header_month"].text = self.current_date.strftime("%B, %Y")
-        self.ids["header_day"].text = self.current_date.strftime("%d, %A")
+        self.ids.header_month.text = self.current_date.strftime("%B, %Y")
+        self.ids.header_day.text = self.current_date.strftime("%d, %A")
 
     def update_content(self):
-        self.ids["students_list"].clear_widgets()
+        self.ids.students_list.clear_widgets()
         with self.app.con() as cursor:
             sql = """SELECT DISTINCT l.*, s.*, lt.* FROM lessons AS l LEFT JOIN students AS s
                 ON l.student_id = s.id LEFT JOIN lesson_type AS lt ON l.lesson_type_id = lt.id
@@ -36,12 +36,11 @@ class ScheduleScreen(Screen):
                 return
             for index, row in enumerate(rows, start=1):
                 student_card = StudentCard()
-                student_card.ids["id"].text = str(index)
-                #datetime.strptime(str(row["time"]), "%H/%m/%S").date()
-                student_card.ids["time"].text = str(row["time"])[:-3]
-                student_card.ids["name"].text = row["name"]
-                student_card.ids["address"].text = row["address"]+ " (" + row["lesson_type"] + ")"
-                self.ids["students_list"].add_widget(student_card)
+                student_card.ids.id.text = str(index)
+                student_card.ids.time.text = str(row["time"])[:-3]
+                student_card.ids.student_name.text = row["name"]
+                student_card.ids.address.text = row["address"]+ " (" + row["lesson_type"] + ")"
+                self.ids.students_list.add_widget(student_card)
 
     def update_month(self, month):
         self.current_date = self.current_date + relativedelta(months=month)

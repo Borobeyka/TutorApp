@@ -4,22 +4,20 @@
     md_bg_color: rgba(app.settings["color"]["lemon"])
     orientation: "vertical"
     on_release:
-        print(self)
+        self.on_touch(self)
     BoxLayout:
         MDLabel:
             id: id
-            #text: "1"
+            #size_hint_x: .2
             halign: "center"
         MDLabel:
             id: time
-            #text: "16:30"
             halign: "center"
         MDLabel:
-            id: name
-            #text: "Вова"
+            id: student_name
             halign: "center"
+
     MDLabel:
         id: address
-        #text: "ул. 2-я Владимирская, 5"
-        halign: "center"
         md_bg_color: rgba(app.settings["color"]["honeydew"])
+        halign: "center"
