@@ -12,7 +12,7 @@ Builder.load_file("./objects/screens/ScheduleScreen.kv")
 class ScheduleScreen(Screen):
     def __init__ (self, **kwargs):
         super(ScheduleScreen, self).__init__(**kwargs)
-        self.current_date = datetime.datetime.now()
+        self.current_date = datetime.now()
         self.app = MDApp.get_running_app()
     
     def update(self):

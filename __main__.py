@@ -6,16 +6,12 @@ from kivy.lang import Builder
 from kivy.config import Config
 from kivy.storage.jsonstore import JsonStore
 
-#
-
 # UIX
 from objects.ScreenManagement import *
 
 # Widgets
 Builder.load_file("./objects/widgets/root.kv")
 from objects.widgets.MainWidget import *
-
-#DB = cDatabase()
 
 class MainApp(MDApp):
     def __init__ (self, **kwargs):
