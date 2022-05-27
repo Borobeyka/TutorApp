@@ -22,8 +22,6 @@ class StudentsScreen(Screen):
             sql = """SELECT * FROM students WHERE tutor_id = (SELECT id FROM tutors WHERE login=%s)"""
             cursor.execute(sql, (self.app.store.get("data")["login"],))
             rows = cursor.fetchall()
-            print(rows)
-
             for row in rows:
                 student = Button(size_hint_y=None, height=80, font_size=18, background_color=self.app.settings["color"]["lemon"])
                 student.bind(on_press=self.show_student)
@@ -43,10 +41,6 @@ class StudentsScreen(Screen):
                     text="Закрыть",
                     on_release=self.close
                 ),
-                # MDFlatButton(
-                #     text="Удалить",
-                #     on_release=self.remove(instance.name)
-                # ),
                 MDFlatButton(
                     text="Сохранить изменения",
                     on_release=self.save
@@ -62,16 +56,8 @@ class StudentsScreen(Screen):
         with self.app.con().cursor() as cursor:
             sql = """UPDATE students SET name=%s, phone=%s, address=%s WHERE id=%s"""
             cursor.execute(sql, (fields.name.text, fields.phone.text, fields.address.text, self.dialog.content_cls.student_id))
+        self.update()
         self.dialog.dismiss()
-
-    
-    # def remove(self, id):
-    #     print(id)
-    #     with self.app.con().cursor() as cursor:
-    #         sql = """DELETE FROM students WHERE id=%s"""
-    #         cursor.execute(sql, (id,))
-    #     self.dialog.dismiss()
-    #     self.update()
     
     def close(self, instance):
         self.dialog.dismiss()

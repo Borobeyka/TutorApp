@@ -9,3 +9,12 @@
         size: root.width, root.height
         padding: app.settings["screen"]["padding"] / 2, app.settings["screen"]["padding"]
         spacing: 15
+
+    BoxLayout:
+        padding: app.settings["screen"]["padding"] / 2, app.settings["screen"]["padding"]
+
+        MDFillRoundFlatButton:
+            size_hint_x: 1
+            size_hint_y: None
+            height: 40
+            text: "Добавить ученика"
