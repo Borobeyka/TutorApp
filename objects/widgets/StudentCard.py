@@ -26,12 +26,24 @@ class StudentCard(MDCard):
                     on_release=self.close
                 ),
                 MDFlatButton(
+                    text="Удалить",
+                    on_release=self.remove
+                ),
+                MDFlatButton(
                     text="Сохранить изменения",
                     on_release=self.save
                 )
             ]
         )
         self.dialog.open()
+
+    def remove(self, instance):
+
+        with self.app.con().cursor() as cursor:
+            sql = """DELETE FROM lessons WHERE id=%s"""
+            cursor.execute(sql, (self.cols.get("id")))
+        self.parent.parent.parent.parent.update()
+        self.dialog.dismiss()
     
     def close(self, instance):
         self.dialog.dismiss()
