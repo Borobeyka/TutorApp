@@ -5,7 +5,6 @@ from kivy.uix.boxlayout import BoxLayout
 from objects.screens.ScheduleScreen import *
 from objects.screens.ProfileScreen import *
 from objects.screens.StudentsScreen import *
-from objects.screens.SettingsScreen import *
 
 Builder.load_file("./objects/widgets/MainWidget.kv")
 

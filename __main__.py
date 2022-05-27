@@ -40,15 +40,15 @@ class MainApp(MDApp):
             user = self.settings["app"]["db"]["username"],
             password = self.settings["app"]["db"]["password"],
             database = self.settings["app"]["db"]["database"],
-            charset = "utf8",
-            cursorclass = pymysql.cursors.DictCursor, autocommit=True)
+            charset = "utf8", autocommit=True,
+            cursorclass = pymysql.cursors.DictCursor)
         return con
         
     def build(self):
         mw = MainWidget()
-
         if self.is_logged == True:
             mw.ids.manager.get_screen("schedule").update()
+            mw.ids.manager.get_screen("students").update()
         else:
             mw.ids.manager.current = "profile"
         return mw

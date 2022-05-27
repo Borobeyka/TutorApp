@@ -3,25 +3,9 @@
     title: "Ученики"
 
     BoxLayout:
+        id: students
         orientation: "vertical"
         size_hint: 1, None
         size: root.width, root.height
         padding: app.settings["screen"]["padding"] / 2, app.settings["screen"]["padding"]
         spacing: 15
-
-
-        Button:
-            size_hint_y: None
-            height: 80
-            font_size: 18
-            background_color: rgba(app.settings["color"]["lemon"])
-            text: "Вера"
-
-        Button:
-            size_hint_y: None
-            height: 80
-            font_size: 18
-            background_color: rgba(app.settings["color"]["lemon"])
-            text: "Настя ОГЭ"
-
-        Widget:
