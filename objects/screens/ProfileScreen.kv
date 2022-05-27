@@ -9,30 +9,26 @@
         padding: app.settings["screen"]["padding"] / 2, app.settings["screen"]["padding"]
 
         MDLabel:
-            #id: notificator
+            id: notificator
+            color: [1, 0, 0, 1]
             size_hint_y: None
             height: 40
-            text: "1"
 
         MDTextField:
-            #id: students_list
+            id: login
             size_hint_y: None
             height: 40
             hint_text: "Логин"
-            text: "borobeyka"
+            text: "aakul1"
 
-            # on_focus:
-            #     if self.focus: root.students_list.open()
 
         MDTextField:
-            #id: student_time
+            id: password
             size_hint_y: None
             height: 40
+            password: True
             hint_text: "Новый пароль"
-            text: ""
 
-            # on_focus:
-            #     if self.focus: root.show_date_picker()
 
         MDFillRoundFlatButton:
             size_hint_x: 1
@@ -41,4 +37,6 @@
             text: "Сохранить изменения"
 
             on_release:
-                print(root)
+                root.save()
+
+        Widget:

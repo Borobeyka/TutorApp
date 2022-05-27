@@ -85,6 +85,6 @@ class ScheduleScreen(Screen):
         with self.app.con().cursor() as cursor:
             sql = """INSERT INTO lessons VALUES(NULL, (SELECT id FROM tutors WHERE login = %s), %s, %s, %s, %s, %s)"""
             cursor.execute(sql, (self.app.store.get("data")["login"], self.current_date, fields.student_time.text,
-                data.get("student_id"), data.get("lesson_type_id"), data.get("payment_type_id")))    
+                data.get("student_id"), data.get("lesson_type_id"), data.get("payment_type_id")))
         self.dialog.dismiss()
         self.update()

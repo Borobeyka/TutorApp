@@ -6,4 +6,5 @@ from kivy.uix.screenmanager import Screen
 Builder.load_file("./objects/screens/StudentsScreen.kv")
 
 class StudentsScreen(Screen):
-    pass
+    def __init__ (self, **kwargs):
+        super(StudentsScreen, self).__init__(**kwargs)
