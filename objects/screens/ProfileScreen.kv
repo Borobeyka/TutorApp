@@ -19,8 +19,8 @@
             size_hint_y: None
             height: 40
             hint_text: "Логин"
-            text: "aakul1"
-
+            text: str(app.store.get("data")["login"])
+            readonly: True
 
         MDTextField:
             id: password

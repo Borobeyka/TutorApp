@@ -54,7 +54,7 @@ class ScheduleScreen(Screen):
 
     def add_lesson(self):
         self.dialog = MDDialog(
-            title="Сведения об уроке",
+            title="Добавление урока",
             type="custom",
             radius=[20],
             content_cls=LessonContent(),
