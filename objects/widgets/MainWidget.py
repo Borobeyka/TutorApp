@@ -12,7 +12,9 @@ Builder.load_file("./objects/widgets/MainWidget.kv")
 class MainWidget(BoxLayout):
     def __init__ (self, **kwargs):
         super(MainWidget, self).__init__(**kwargs)
+        self.app = MDApp.get_running_app()
 
     def change_screen(self, instance):
-        self.ids.manager.current = instance.name
-        self.ids.tool_bar.title = instance.text
+        if self.app.is_logged:
+            self.ids.manager.current = instance.name
+            self.ids.tool_bar.title = instance.text

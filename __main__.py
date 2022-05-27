@@ -1,5 +1,6 @@
 # ROOT
 import json
+from multiprocessing import Manager
 import pymysql
 from kivymd.app import MDApp
 from kivy.lang import Builder
@@ -26,7 +27,7 @@ class MainApp(MDApp):
     
     def is_logged(self):
         if self.store.exists("data"):
-            with self.con() as cursor:
+            with self.con().cursor() as cursor:
                 sql = "SELECT login FROM tutors WHERE login = %s"
                 count = cursor.execute(sql, (self.store.get("data")["login"],))
                 if count != 0:
@@ -40,12 +41,16 @@ class MainApp(MDApp):
             password = self.settings["app"]["db"]["password"],
             database = self.settings["app"]["db"]["database"],
             charset = "utf8",
-            cursorclass = pymysql.cursors.DictCursor)
-        return con.cursor()
+            cursorclass = pymysql.cursors.DictCursor, autocommit=True)
+        return con
         
     def build(self):
         mw = MainWidget()
-        mw.ids.manager.get_screen("schedule").update()
+
+        if self.is_logged == True:
+            mw.ids.manager.get_screen("schedule").update()
+        else:
+            mw.ids.manager.current = "profile"
         return mw
 
 if __name__ == "__main__":

@@ -1,13 +1,16 @@
-<StudentCardContent>:
+<LessonContent>:
     orientation: "vertical"
     spacing: "12dp"
     size_hint_y: None
     height: 260
 
+    MDLabel:
+        id: notificator
+        color: [1, 0, 0, 1]
+
     MDTextField:
         id: students_list
         hint_text: "Ученик"
-        text: str(root.student.ids.student_name.text)
         readonly: True
 
         on_focus:
@@ -16,7 +19,6 @@
     MDTextField:
         id: student_time
         hint_text: "Назначенное время"
-        text: str(root.student.ids.time.text)
         readonly: True
 
         on_focus:
@@ -25,7 +27,6 @@
     MDTextField:
         id: lessons_list
         hint_text: "Тип занятия"
-        text: str(root.student.cols["lesson_type"])
         readonly: True
 
         on_focus:
@@ -34,7 +35,6 @@
     MDTextField:
         id: payment_list
         hint_text: "Форма оплаты"
-        text: str(root.student.cols["payment_type"])
         readonly: True
 
         on_focus:

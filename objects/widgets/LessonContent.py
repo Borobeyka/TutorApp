@@ -6,13 +6,13 @@ from kivymd.app import MDApp
 from kivy.metrics import dp
 from kivymd.uix.picker import MDTimePicker
 
-Builder.load_file("./objects/widgets/StudentCardContent.kv")
+Builder.load_file("./objects/widgets/LessonContent.kv")
 
-class StudentCardContent(BoxLayout):
-    def __init__ (self, student, **kwargs):
-        self.student = student
-        super(StudentCardContent, self).__init__(**kwargs)
+class LessonContent(BoxLayout):
+    def __init__ (self, **kwargs):
+        super(LessonContent, self).__init__(**kwargs)
         self.app = MDApp.get_running_app()
+        self.student = {}
         items = []
         with self.app.con().cursor() as cursor:
             sql = """SELECT id, name FROM students WHERE tutor_id =(SELECT id FROM tutors WHERE login = %s)"""
@@ -69,28 +69,27 @@ class StudentCardContent(BoxLayout):
             width_mult=8,
             max_height=dp(168)
         )
-
+    
     def set_payment_list_item(self, item, id):
-        self.ids.payment_list.text = self.student.cols["payment_type"] = item
-        self.student.cols["payment_type_id"] = id
+        self.ids.payment_list.text = self.student["payment_type"] = item
+        self.student["payment_type_id"] = id
         self.payment_list.dismiss()
 
     def set_lessons_list_item(self, item, id):
-        self.ids.lessons_list.text = self.student.cols["lesson_type"] = item
-        self.student.cols["lesson_type_id"] = id
+        self.ids.lessons_list.text = self.student["lesson_type"] = item
+        self.student["lesson_type_id"] = id
         self.lessons_list.dismiss()
 
     def set_students_list_item(self, item, id):
-        self.ids.students_list.text = self.student.cols["name"] = item
-        self.student.cols["student_id"] = id
+        self.ids.students_list.text = self.student["name"] = item
+        self.student["student_id"] = id
         self.students_list.dismiss()
-    
+
     def on_save(self, instance, time):
-        self.student.ids.time.text = self.ids.student_time.text = str(time.strftime("%H:%M"))
-        self.student.cols["time"] = str(time.strftime("%H:%M"))
+        self.ids.student_time.text = str(time.strftime("%H:%M"))
     
     def show_date_picker(self):
         timepicker = MDTimePicker()
-        timepicker.set_time(datetime.strptime(self.student.ids.time.text, "%H:%M"))
+        timepicker.set_time(datetime.now())
         timepicker.bind(on_save=self.on_save)
         timepicker.open()

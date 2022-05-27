@@ -21,7 +21,6 @@
 
             MDLabel:
                 id: header_month
-                text: "Май, 2022"
                 font_size: 22
                 halign: "center"
                 valign: "center"
@@ -46,7 +45,6 @@
 
             MDLabel:
                 id: header_day
-                text: "11, среда"
                 font_size: 22
                 halign: "center"
                 valign: "center"
@@ -71,4 +69,4 @@
             text: "Добавить занятие"
 
             on_release:
-                print(root)
+                root.add_lesson()

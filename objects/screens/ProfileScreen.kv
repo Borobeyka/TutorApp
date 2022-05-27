@@ -2,5 +2,43 @@
     name: "profile"
     title: "Профиль"
 
-    Button:
-        text: "Я кнопка на профиле"
+    BoxLayout:
+        orientation: "vertical"
+        size_hint: 1, None
+        size: root.width, root.height
+        padding: app.settings["screen"]["padding"] / 2, app.settings["screen"]["padding"]
+
+        MDLabel:
+            #id: notificator
+            size_hint_y: None
+            height: 40
+            text: "1"
+
+        MDTextField:
+            #id: students_list
+            size_hint_y: None
+            height: 40
+            hint_text: "Логин"
+            text: "borobeyka"
+
+            # on_focus:
+            #     if self.focus: root.students_list.open()
+
+        MDTextField:
+            #id: student_time
+            size_hint_y: None
+            height: 40
+            hint_text: "Новый пароль"
+            text: ""
+
+            # on_focus:
+            #     if self.focus: root.show_date_picker()
+
+        MDFillRoundFlatButton:
+            size_hint_x: 1
+            size_hint_y: None
+            height: 40
+            text: "Сохранить изменения"
+
+            on_release:
+                print(root)
