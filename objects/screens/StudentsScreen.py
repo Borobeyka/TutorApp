@@ -8,6 +8,7 @@ from kivymd.uix.label import MDLabel
 
 from kivy.uix.screenmanager import Screen
 from objects.widgets.StudentEditContent import *
+from objects.widgets.AddStudentContent import *
 
 Builder.load_file("./objects/screens/StudentsScreen.kv")
 
@@ -61,3 +62,33 @@ class StudentsScreen(Screen):
     
     def close(self, instance):
         self.dialog.dismiss()
+
+    def close_dialog(self, instance):
+        self.as_dialog.dismiss()
+    
+    def add(self, instance):
+        fields = self.as_dialog.content_cls.ids
+        with self.app.con().cursor() as cursor:
+            sql = """INSERT INTO students VALUES(NULL, %s, %s, %s, (SELECT id FROM tutors WHERE login=%s))"""
+            cursor.execute(sql, (fields.name.text, fields.phone.text, fields.address.text, self.app.store.get("data")["login"]))
+        self.update()
+        self.as_dialog.dismiss()
+    
+    def add_student(self):
+        self.as_dialog = MDDialog(
+            title="Добавление ученика",
+            type="custom",
+            radius=[20],
+            content_cls=AddStudentContent(),
+            buttons=[
+                MDFlatButton(
+                    text="Закрыть",
+                    on_release=self.close_dialog
+                ),
+                MDFlatButton(
+                    text="Добавить",
+                    on_release=self.add
+                )
+            ]
+        )
+        self.as_dialog.open()

@@ -1,4 +1,4 @@
-<StudentEditContent>:
+<AddStudentContent>:
     orientation: "vertical"
     spacing: "12dp"
     size_hint_y: None
@@ -7,14 +7,11 @@
     MDTextField:
         id: name
         hint_text: "Имя"
-        text: str(root.student.get("name"))
 
     MDTextField:
         id: phone
         hint_text: "Телефон"
-        text: str(root.student.get("phone"))
 
     MDTextField:
         id: address
         hint_text: "Адрес"
-        text: str(root.student.get("address"))
